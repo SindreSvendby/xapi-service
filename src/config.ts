@@ -16,7 +16,8 @@ const DEFAULT_TIMEOUT_MS = 300000; // 5 minutes.
 
 const storageDir = `${process.cwd()}/storage`;
 const googleKeyFileName = `${process.cwd()}/google.keyfile.json`;
-const expressPort = getNumberOption(process.env.EXPRESS_PORT, DEFAULT_EXPRESS_PORT);
+const envExpressPort = getNumberOption(process.env.EXPRESS_PORT, process.env.PORT);
+const expressPort = getNumberOption(envExpressPort, DEFAULT_EXPRESS_PORT);
 const demoAuth = `http://localhost:${expressPort}/auth`;
 const accessLogsDir = `${storageDir}/accessLogs`;
 const newRelicLogsDir = `${storageDir}/newrelic-agent.log`;
